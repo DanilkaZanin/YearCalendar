@@ -46,7 +46,10 @@ public class ConsoleCalendarPrinter implements CalendarPrinter {
     private void printMonthDays(MonthCalendar month) {
         printLeadingSpaces(month);
         printDaysWithWeekBreaks(month);
-        System.out.println();
+
+        if ((month.startDayOfWeek() - 1 + month.days().size()) % 7 != 0) {
+            System.out.println();
+        }
     }
 
     private void printLeadingSpaces(MonthCalendar month) {
